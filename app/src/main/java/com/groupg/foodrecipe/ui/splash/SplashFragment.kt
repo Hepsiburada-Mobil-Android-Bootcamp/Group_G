@@ -18,7 +18,7 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         _binding = FragmentSplashBinding.inflate(inflater, container, false)
-        binding.dummyTextView.text = "Dummy Text"
+
         return binding.root
     }
 
