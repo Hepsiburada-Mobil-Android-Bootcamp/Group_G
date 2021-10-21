@@ -11,4 +11,5 @@
     <color name="onboarding_text_secondary">#60FFFFFF</color>
     <color name="onboarding_button_text">#FF460A</color>
     <color name="indicator_active">#FFDFD4</color>
+    <color name="indicator_inactive">#FF855D</color>
 </resources>
