@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.groupg.foodrecipe.MainActivity
+import com.groupg.foodrecipe.data.local.SharedPrefManager
 import com.groupg.foodrecipe.databinding.FragmentThirdOnboardingBinding
 
 class ThirdOnboardingFragment : Fragment() {
@@ -31,6 +32,7 @@ class ThirdOnboardingFragment : Fragment() {
         binding.thirdOnboardingButton.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
+            SharedPrefManager(requireContext()).setOnboardingShown()
             requireActivity().finish()
         }
     }

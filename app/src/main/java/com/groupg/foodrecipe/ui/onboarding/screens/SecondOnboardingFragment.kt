@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.viewpager2.widget.ViewPager2
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
+import com.groupg.foodrecipe.data.local.SharedPrefManager
 import com.groupg.foodrecipe.databinding.FragmentSecondOnboardingBinding
 
 class SecondOnboardingFragment : Fragment() {
@@ -39,6 +40,7 @@ class SecondOnboardingFragment : Fragment() {
         binding.secondSkipButton.setOnClickListener {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
+            SharedPrefManager(requireContext()).setOnboardingShown()
             requireActivity().finish()
         }
     }

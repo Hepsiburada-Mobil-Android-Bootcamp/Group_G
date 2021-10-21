@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
+import com.groupg.foodrecipe.data.local.SharedPrefManager
 import com.groupg.foodrecipe.databinding.FragmentSplashBinding
 
 
@@ -35,7 +36,12 @@ class SplashFragment : Fragment() {
             }
 
             override fun onAnimationEnd(p0: Animator?) {
-                findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
+                if (!isOnboardingShown()) {
+                    findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
+                } else {
+                    val intent = Intent(context, MainActivity::class.java)
+                    startActivity(intent)
+                }
             }
 
             override fun onAnimationCancel(p0: Animator?) {
@@ -47,4 +53,6 @@ class SplashFragment : Fragment() {
             }
         })
     }
+
+    private fun isOnboardingShown(): Boolean = SharedPrefManager(requireContext()).isOnboardingShown()
 }
