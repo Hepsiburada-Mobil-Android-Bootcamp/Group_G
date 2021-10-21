@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:background="@color/splash_onboarding_background"
     tools:context=".ui.splash.SplashFragment">
 
     <com.airbnb.lottie.LottieAnimationView

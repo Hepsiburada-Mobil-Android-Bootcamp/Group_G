@@ -17,5 +17,6 @@
     <style name="Theme.FoodRecipe.NoActionBar">
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:statusBarColor">@color/splash_onboarding_background</item>
     </style>
 </resources>
