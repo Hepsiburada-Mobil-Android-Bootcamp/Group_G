@@ -7,7 +7,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.groupg.foodrecipe.MainActivity
+import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.databinding.FragmentSplashBinding
 
 
@@ -33,9 +35,7 @@ class SplashFragment : Fragment() {
             }
 
             override fun onAnimationEnd(p0: Animator?) {
-                val intent = Intent(context, MainActivity::class.java)
-                startActivity(intent)
-                requireActivity().finish()
+                findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
             }
 
             override fun onAnimationCancel(p0: Animator?) {
