@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/splash_onboarding_background"
+    tools:context=".ui.onboarding.screens.SecondOnboardingFragment">
+
+    <TextView
+        android:id="@+id/secondSkipButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/skip"
+        android:fontFamily="@font/nunito"
+        android:textColor="@color/onboarding_text_secondary"
+        android:textSize="18sp" />
+
+    <ImageView
+        android:id="@+id/secondAppLogo"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:contentDescription="@string/app_logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp"
+        android:padding="10dp"
+        android:background="@drawable/background_app_logo"
+        android:src="@drawable/ic_app_logo" />
+
+    <TextView
+        android:id="@+id/secondOnboardingDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/secondAppLogo"
+        app:layout_constraintBottom_toTopOf="@+id/secondOnboardingImageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:padding="10dp"
+        android:text="@string/second_onboarding_description"
+        android:textSize="40sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:fontFamily="@font/nunito" />
+
+    <ImageView
+        android:id="@+id/secondOnboardingImageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="@string/second_onboarding_image"
+        app:layout_constraintTop_toBottomOf="@id/secondOnboardingDescription"
+        app:layout_constraintBottom_toTopOf="@+id/secondOnboardingButton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="50dp"
+        android:src="@drawable/ic_chef" />
+
+    <TextView
+        android:id="@+id/secondOnboardingButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/secondOnboardingImageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginEnd="10dp"
+        android:text="@string/next"
+        android:fontFamily="@font/nunito"
+        android:textColor="@color/onboarding_text_secondary"
+        android:textSize="18sp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

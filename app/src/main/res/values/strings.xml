@@ -1,4 +1,17 @@
 <resources>
     <string name="app_name">FoodRecipe</string>
     <string name="title_home">Home</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip"><![CDATA[Skip >>]]></string>
+    <string name="first_onboarding_description">Don\'t bother thinking what to cook</string>
+    <string name="first_onboarding_image">First Onboarding Image</string>
+    <string name="next"><![CDATA[Next >]]></string>
+    <string name="app_logo">App Logo</string>
+    <string name="second_onboarding_description">Search among a variety of recipes</string>
+    <string name="second_onboarding_image">Second Onboarding Image</string>
+    <string name="third_onboarding_description">Save your favorite recipes to cook</string>
+    <string name="third_onboarding_image">Third Onboarding Image</string>
+    <string name="get_started">Get started!</string>
+    <string name="third_app_logo">Third App Logo</string>
 </resources>
