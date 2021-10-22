@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.databinding.FragmentRegisterBinding
+import java.util.logging.Logger
+import java.util.regex.Pattern
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
@@ -32,9 +34,108 @@ class RegisterFragment : Fragment() {
         }
 
         binding.registerButton.setOnClickListener {
+            attemptRegister()
+        }
+    }
+
+    private fun attemptRegister() {
+        val username = binding.registerUsername.text.toString()
+        val email = binding.registerEmail.text.toString()
+        val password = binding.registerPassword.text.toString()
+
+        val usernameIsValid = isValidUsername(username)
+        val emailIsValid = isValidEmail(email)
+        val passwordIsValid = isValidPassword(password)
+
+        if (emailIsValid && passwordIsValid && usernameIsValid) {
             val intent = Intent(context, MainActivity::class.java)
             startActivity(intent)
             requireActivity().finish()
         }
+    }
+
+    private fun isValidUsername(username: String): Boolean {
+        val input = binding.registerTextInputUsername
+        val usernamePattern = Pattern.compile("^[a-z0-9_]{2,20}$")
+        var isValid: Boolean
+
+        when {
+            username.isEmpty() -> {
+                isValid = false
+                input.error = getString(R.string.username_is_required)
+            }
+            usernamePattern.matcher(username).matches() -> {
+                isValid = true
+                input.error = null
+            }
+            else -> when {
+                username.length < 2 -> {
+                    isValid = false
+                    input.error = getString(R.string.short_username)
+                }
+                username.length > 40 -> {
+                    isValid = true
+                    input.error = getString(R.string.long_username)
+                }
+                else -> {
+                    isValid = false
+                    input.error = getString(R.string.username_restrictions)
+                }
+            }
+        }
+        return isValid
+    }
+
+    private fun isValidPassword(password: String): Boolean {
+        val input = binding.registerTextInputPassword
+        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{7,40}$")
+        var isValid: Boolean
+
+        when {
+            password.isEmpty() -> {
+                isValid = false
+                input.error = getString(R.string.password_is_required)
+            }
+            passwordPattern.matcher(password).matches() -> {
+                isValid = true
+                input.error = null
+            }
+            else -> when {
+                password.length < 7 -> {
+                    isValid = false
+                    input.error = getString(R.string.short_password)
+                }
+                password.length > 40 -> {
+                    isValid = false
+                    input.error = getString(R.string.long_password)
+                }
+                else -> {
+                    isValid = false
+                    input.error = getString(R.string.password_restrictions)
+                }
+            }
+        }
+        return isValid
+    }
+
+    private fun isValidEmail(email: String): Boolean {
+        val input = binding.registerTextInputEmail
+        var isValid : Boolean
+
+        when {
+            email.isEmpty() -> {
+                input.error = getString(R.string.email_is_required)
+                isValid = false
+            }
+            !email.contains(".") || !email.contains("@") || email.length >= 50 -> {
+                input.error = getString(R.string.email_invalid)
+                isValid = false
+            }
+            else -> {
+                input.error = null
+                isValid = true
+            }
+        }
+        return isValid
     }
 }

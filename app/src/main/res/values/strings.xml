@@ -26,4 +26,8 @@
     <string name="short_password">Password is too short.</string>
     <string name="long_password">Password is too long.</string>
     <string name="password_restrictions">Password must contain one digit, one uppercase letter, one lowercase letter and one special character.</string>
+    <string name="username_is_required">Username is required.</string>
+    <string name="short_username">Username is too short.</string>
+    <string name="long_username">Username is too long.</string>
+    <string name="username_restrictions">Username can only include a-z, 0-9 and _ characters</string>
 </resources>
