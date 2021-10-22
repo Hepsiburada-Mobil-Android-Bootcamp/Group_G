@@ -26,4 +26,12 @@ class HomeViewModel : ViewModel() {
 
 
     }
+    fun addFood()
+    {
+
+
+
+
+
+    }
 }

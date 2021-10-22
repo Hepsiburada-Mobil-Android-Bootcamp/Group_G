@@ -21,33 +21,52 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:id="@+id/editTextFoodInfo"
-                android:layout_width="wrap_content"
+                android:id="@+id/editTextFoodRecipe"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="10dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/search_view"
                 android:ems="10"
-                android:hint="Food Name"
-                android:inputType="textPersonName"
+                android:hint="Food Recipe"
+                android:inputType="textMultiLine"
+                android:maxLines="23"
+                android:lines="8"
                 android:textSize="14sp"
                 app:layout_constraintBottom_toTopOf="@+id/button"
-                app:layout_constraintEnd_toEndOf="@+id/editTextFoodName"
-                app:layout_constraintStart_toStartOf="@+id/editTextFoodName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/editTextFoodInfo" />
+
+            <EditText
+                android:id="@+id/editTextFoodInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:background="@drawable/search_view"
+                android:ems="10"
+                android:hint="Food Info"
+                android:inputType="text"
+                android:lines="8"
+                android:minLines="8"
+                android:textSize="14sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextFoodName" />
 
             <EditText
                 android:id="@+id/editTextFoodName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="40dp"
+                android:layout_marginStart="80dp"
                 android:layout_marginTop="170dp"
-                android:layout_marginEnd="40dp"
+                android:layout_marginEnd="80dp"
                 android:background="@drawable/search_view"
                 android:ems="10"
-                android:hint="Food Info"
+                android:hint="Food Name"
                 android:inputType="textPersonName"
                 android:textSize="14sp"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -56,21 +75,22 @@
 
             <ImageView
                 android:id="@+id/imageViewFoodImage"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="20dp"
+                android:src="@drawable/food_dummy"
                 app:layout_constraintBottom_toTopOf="@+id/editTextFoodName"
                 app:layout_constraintEnd_toEndOf="parent"
-                android:src="@drawable/food_dummy"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/toolbar2"
-                 />
+                app:layout_constraintVertical_bias="1.0" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/buttonAddFood"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:backgroundTint="#FA4A0C"
                 android:text="Save"
@@ -78,7 +98,7 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/editTextFoodInfo"
+                app:layout_constraintTop_toBottomOf="@+id/editTextFoodRecipe"
                 app:layout_constraintVertical_bias="0.0" />
 
             <androidx.appcompat.widget.Toolbar
@@ -97,11 +117,21 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppins_bold"
-                    android:text="Food Add"
+                    android:text=" Add Food"
                     android:textColor="@color/black"
                     android:textSize="16sp"
                     tools:layout_editor_absoluteX="16dp"
                     tools:layout_editor_absoluteY="18dp"></TextView>
+
+                <ImageButton
+                    android:id="@+id/imageButtonDialogExit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_gravity="end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:srcCompat="@drawable/ic_baseline_cancel_24"
+                    tools:layout_editor_absoluteY="0dp" />
 
             </androidx.appcompat.widget.Toolbar>
 
@@ -118,6 +148,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/imageViewFoodImage" />
+
+
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

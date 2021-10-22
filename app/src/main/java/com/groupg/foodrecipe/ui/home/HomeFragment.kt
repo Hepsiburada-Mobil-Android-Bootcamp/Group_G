@@ -3,6 +3,7 @@ package com.groupg.foodrecipe.ui.home
 import android.app.Activity
 import android.app.AlertDialog
 import android.app.Dialog
+import android.content.DialogInterface
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -27,6 +28,7 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private  lateinit var bindingAlert:FoodAddDialogBinding
     lateinit var  imageUri:Uri
+    lateinit var dialog:Dialog
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -46,9 +48,41 @@ class HomeFragment : Fragment() {
         binding.rv.layoutManager=GridLayoutManager(requireContext(),2)
         binding.rv.adapter=FoodCardAdapter("data")
 
+        bindingAlert= FoodAddDialogBinding.inflate(inflater,container,false)
+
+        bindingAlert.textViewUploadImage.setOnClickListener {
+
+
+            selectImage()
+
+        }
+
+        bindingAlert.imageButtonDialogExit.setOnClickListener {
+
+            dialog.cancel()
+            dialog.dismiss()
+            if(bindingAlert.root.parent !=null)
+            {
+                val view:View=bindingAlert.root
+                val viewgroup:ViewGroup=bindingAlert.root.parent as ViewGroup
+                viewgroup.removeView(view)
+
+
+
+
+            }
+
+        }
+        bindingAlert.buttonAddFood.setOnClickListener{
+
+
+
+
+        }
+
         binding.fabFoodAdd.setOnClickListener {
 
-            AddDialog()
+            showDialog()
 
         }
 
@@ -73,24 +107,33 @@ class HomeFragment : Fragment() {
     }
 
 
-    fun AddDialog(){
-         bindingAlert= FoodAddDialogBinding.inflate(layoutInflater)
-        bindingAlert.textViewUploadImage.setOnClickListener {
+    fun showDialog()
+    {
 
-       selectImage()
-            
-        }
-        var dialog=Dialog(requireContext())
-
+        dialog=Dialog(requireContext())
         dialog.setContentView(bindingAlert.root)
         dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-
+        dialog.create()
         dialog.show()
+
+
 
     }
 
     private fun selectImage()
     {
+        val bundle = Bundle()
+        bundle.putInt("requestCode",100)
+        var intent=Intent()
+        intent.type = "image/*"
+        intent.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(intent,100)
+
+
+
+
+    }
+    private fun addFood(){
 
 
 
@@ -110,6 +153,7 @@ class HomeFragment : Fragment() {
 
         }
     }
+
 
 
 }
