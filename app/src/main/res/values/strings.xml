@@ -30,4 +30,8 @@
     <string name="short_username">Username is too short.</string>
     <string name="long_username">Username is too long.</string>
     <string name="username_restrictions">Username can only include a-z, 0-9 and _ characters</string>
+    <string name="register_success">Account created successfully!</string>
+    <string name="register_fail">Failed to create account!</string>
+    <string name="firebase_error">Firebase Error: %1$s</string>
+    <string name="login_success">Login successful!</string>
 </resources>

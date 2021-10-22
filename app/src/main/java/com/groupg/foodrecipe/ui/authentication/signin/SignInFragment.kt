@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.databinding.FragmentSignInBinding
@@ -15,6 +17,8 @@ import java.util.regex.Pattern
 class SignInFragment : Fragment() {
     private var _binding: FragmentSignInBinding? = null
     private val binding get() = _binding!!
+
+    private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -43,9 +47,19 @@ class SignInFragment : Fragment() {
         val passwordIsValid = isValidPassword(password)
 
         if (emailIsValid && passwordIsValid) {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            firebaseAuth.signInWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(context, getString(R.string.login_success), Toast.LENGTH_LONG).show()
+                        val intent = Intent(context, MainActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(context, getString(R.string.firebase_error, exception.message), Toast.LENGTH_SHORT).show()
+                }
+
         }
     }
 

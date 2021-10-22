@@ -6,16 +6,20 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.navigation.fragment.findNavController
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.databinding.FragmentRegisterBinding
-import java.util.logging.Logger
 import java.util.regex.Pattern
 
 class RegisterFragment : Fragment() {
     private var _binding: FragmentRegisterBinding? = null
     private val binding get() = _binding!!
+
+    private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance() }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -48,10 +52,29 @@ class RegisterFragment : Fragment() {
         val passwordIsValid = isValidPassword(password)
 
         if (emailIsValid && passwordIsValid && usernameIsValid) {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
-            requireActivity().finish()
+            firebaseAuth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        setUsername(username)
+                        Toast.makeText(context, getString(R.string.register_success), Toast.LENGTH_LONG).show()
+                        val intent = Intent(context, MainActivity::class.java)
+                        startActivity(intent)
+                        requireActivity().finish()
+                    }
+                }
+                .addOnFailureListener { exception ->
+                    Toast.makeText(context, getString(R.string.firebase_error, exception.message), Toast.LENGTH_LONG).show()
+                }
         }
+    }
+
+    private fun setUsername(username: String) {
+        val user = firebaseAuth.currentUser
+
+        val profileUpdates = userProfileChangeRequest {
+            displayName = username
+        }
+        user!!.updateProfile(profileUpdates)
     }
 
     private fun isValidUsername(username: String): Boolean {
