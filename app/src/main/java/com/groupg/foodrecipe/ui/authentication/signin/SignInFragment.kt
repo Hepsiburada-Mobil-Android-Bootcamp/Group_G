@@ -72,7 +72,7 @@ class SignInFragment : Fragment() {
 
     private fun isValidPassword(password: String): Boolean {
         val input = binding.signInTextInputPassword
-        val passwordPattern = Pattern.compile("^^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{7,40}$")
+        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{7,40}$")
         var isValid: Boolean
 
         when {

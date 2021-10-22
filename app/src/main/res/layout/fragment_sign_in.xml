@@ -109,6 +109,7 @@
             android:layout_height="match_parent"
             android:fontFamily="@font/actor"
             android:textSize="17sp"
+            android:inputType="textPassword"
             android:background="@color/auth_background" />
     </com.google.android.material.textfield.TextInputLayout>
 
