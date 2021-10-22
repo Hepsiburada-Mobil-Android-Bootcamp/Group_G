@@ -58,7 +58,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingHorizontal="50dp"
-        android:src="@drawable/ic_chef" />
+        android:src="@drawable/ic_meal" />
 
     <TextView
         android:id="@+id/secondOnboardingButton"

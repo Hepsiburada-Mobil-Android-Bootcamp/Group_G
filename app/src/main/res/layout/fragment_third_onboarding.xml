@@ -44,8 +44,7 @@
         app:layout_constraintBottom_toTopOf="@+id/thirdOnboardingButton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:paddingHorizontal="50dp"
-        android:src="@drawable/ic_hamburger" />
+        android:src="@drawable/ic_chef" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/thirdOnboardingButton"
