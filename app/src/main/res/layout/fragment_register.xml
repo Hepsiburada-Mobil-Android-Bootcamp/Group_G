@@ -67,10 +67,33 @@
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/registerTextInputEmail"
+        android:id="@+id/registerTextInputUsername"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/registerTop"
+        app:layout_constraintBottom_toTopOf="@id/registerTextInputEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="30dp"
+        android:gravity="center"
+        app:boxStrokeColor="@color/splash_onboarding_background"
+        app:hintTextColor="@color/splash_onboarding_background"
+        android:hint="@string/username">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/actor"
+            android:textSize="17sp"
+            android:background="@color/auth_background" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerTextInputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/registerTextInputUsername"
         app:layout_constraintBottom_toTopOf="@id/registerTextInputPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -94,22 +117,22 @@
         android:id="@+id/registerTextInputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/registerButton"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/registerTop"
-        android:paddingHorizontal="30dp"
         android:gravity="center"
+        android:hint="@string/password"
+        android:paddingHorizontal="30dp"
         app:boxStrokeColor="@color/splash_onboarding_background"
         app:hintTextColor="@color/splash_onboarding_background"
-        android:hint="@string/password">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerTop">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/registerPassword"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:background="@color/auth_background"
             android:fontFamily="@font/actor"
-            android:textSize="17sp"
-            android:background="@color/auth_background" />
+            android:textSize="17sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <androidx.appcompat.widget.AppCompatButton
