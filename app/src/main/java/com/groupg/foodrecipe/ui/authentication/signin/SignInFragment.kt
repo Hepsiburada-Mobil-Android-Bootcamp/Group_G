@@ -58,7 +58,7 @@ class SignInFragment : Fragment() {
                 input.error = getString(R.string.email_is_required)
                 isValid = false
             }
-            !email.contains(".") || !email.contains("@") || email.length >= 50 -> {
+            !email.contains(".") || !email.contains("@") || email.length >= 50 || email.length <= 5 -> {
                 input.error = getString(R.string.email_invalid)
                 isValid = false
             }
@@ -72,7 +72,7 @@ class SignInFragment : Fragment() {
 
     private fun isValidPassword(password: String): Boolean {
         val input = binding.signInTextInputPassword
-        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{7,40}$")
+        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{8,39}$")
         var isValid: Boolean
 
         when {
@@ -85,11 +85,11 @@ class SignInFragment : Fragment() {
                 input.error = null
             }
             else -> when {
-                password.length < 7 -> {
+                password.length <= 7 -> {
                     isValid = false
                     input.error = getString(R.string.short_password)
                 }
-                password.length > 40 -> {
+                password.length >= 40 -> {
                     isValid = false
                     input.error = getString(R.string.long_password)
                 }

@@ -56,7 +56,7 @@ class RegisterFragment : Fragment() {
 
     private fun isValidUsername(username: String): Boolean {
         val input = binding.registerTextInputUsername
-        val usernamePattern = Pattern.compile("^[a-z0-9_]{2,20}$")
+        val usernamePattern = Pattern.compile("^[a-z0-9_]{3,19}$")
         var isValid: Boolean
 
         when {
@@ -69,11 +69,11 @@ class RegisterFragment : Fragment() {
                 input.error = null
             }
             else -> when {
-                username.length < 2 -> {
+                username.length < 3 -> {
                     isValid = false
                     input.error = getString(R.string.short_username)
                 }
-                username.length > 40 -> {
+                username.length > 19 -> {
                     isValid = true
                     input.error = getString(R.string.long_username)
                 }
@@ -88,7 +88,7 @@ class RegisterFragment : Fragment() {
 
     private fun isValidPassword(password: String): Boolean {
         val input = binding.registerTextInputPassword
-        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{7,40}$")
+        val passwordPattern = Pattern.compile("^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*[@#$%^&+=]).{8,39}$")
         var isValid: Boolean
 
         when {
@@ -101,11 +101,11 @@ class RegisterFragment : Fragment() {
                 input.error = null
             }
             else -> when {
-                password.length < 7 -> {
+                password.length <= 7 -> {
                     isValid = false
                     input.error = getString(R.string.short_password)
                 }
-                password.length > 40 -> {
+                password.length >= 40 -> {
                     isValid = false
                     input.error = getString(R.string.long_password)
                 }
@@ -127,7 +127,7 @@ class RegisterFragment : Fragment() {
                 input.error = getString(R.string.email_is_required)
                 isValid = false
             }
-            !email.contains(".") || !email.contains("@") || email.length >= 50 -> {
+            !email.contains(".") || !email.contains("@") || email.length >= 50 ||email.length <= 5 -> {
                 input.error = getString(R.string.email_invalid)
                 isValid = false
             }
