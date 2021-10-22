@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/auth_background"
+    tools:context=".ui.authentication.signin.SignInFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/signInTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:paddingTop="100dp"
+        android:background="@drawable/background_authentication_top">
+
+        <ImageView
+            android:id="@+id/signInAppLogo"
+            android:contentDescription="@string/app_logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:src="@drawable/ic_app_logo" />
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:id="@+id/signInSignInText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/signInAppLogo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/signInRegisterText"
+            android:text="@string/login"
+            android:fontFamily="@font/actor"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/signInRegisterText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/signInAppLogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/signInSignInText"
+            android:layout_marginTop="50dp"
+            android:text="@string/sign_up"
+            android:fontFamily="@font/actor"
+            android:textSize="18sp"/>
+
+        <View
+            android:id="@+id/signInIndicator"
+            android:layout_width="128dp"
+            android:layout_height="4dp"
+            app:layout_constraintTop_toBottomOf="@id/signInSignInText"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@id/signInSignInText"
+            app:layout_constraintStart_toStartOf="@id/signInSignInText"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/authentication_indicator"
+            android:src="@drawable/indicator_active" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signInTextInputEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signInTop"
+        app:layout_constraintBottom_toTopOf="@id/signInTextInputPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingHorizontal="30dp"
+        android:gravity="center"
+        app:boxStrokeColor="@color/splash_onboarding_background"
+        app:hintTextColor="@color/splash_onboarding_background"
+        android:hint="@string/email_address">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signInEmail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/actor"
+            android:textSize="17sp"
+            android:background="@color/auth_background" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/signInTextInputPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/signInTop"
+        app:layout_constraintBottom_toTopOf="@+id/signInButton"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingHorizontal="30dp"
+        android:gravity="center"
+        app:boxStrokeColor="@color/splash_onboarding_background"
+        app:hintTextColor="@color/splash_onboarding_background"
+        android:hint="@string/password">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/signInPassword"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/actor"
+            android:textSize="17sp"
+            android:background="@color/auth_background" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/signInForgotText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/signInTextInputPassword"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:paddingStart="30dp"
+        android:text="@string/forgot_password"
+        android:textColor="@color/splash_onboarding_background"
+        android:fontFamily="@font/actor"
+        android:textSize="17sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/signInButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginBottom="20dp"
+        android:layout_marginHorizontal="30dp"
+        android:background="@drawable/bg_button_authentication"
+        android:text="@string/login"
+        android:fontFamily="@font/actor"
+        android:textSize="17sp"
+        android:textAllCaps="false"
+        android:textColor="@color/auth_button_text"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

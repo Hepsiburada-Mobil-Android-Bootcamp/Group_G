@@ -12,4 +12,6 @@
     <color name="onboarding_button_text">#FF460A</color>
     <color name="indicator_active">#FFDFD4</color>
     <color name="indicator_inactive">#FF855D</color>
+    <color name="auth_background">#F2F2F2</color>
+    <color name="auth_button_text">#F6F6F9</color>
 </resources>
