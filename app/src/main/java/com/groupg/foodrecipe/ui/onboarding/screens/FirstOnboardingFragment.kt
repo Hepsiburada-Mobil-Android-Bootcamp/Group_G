@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.groupg.foodrecipe.MainActivity
 import com.groupg.foodrecipe.R
@@ -36,8 +37,7 @@ class FirstOnboardingFragment : Fragment() {
         }
 
         binding.firstSkipButton.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
             SharedPrefManager(requireContext()).setOnboardingShown()
             requireActivity().finish()
         }

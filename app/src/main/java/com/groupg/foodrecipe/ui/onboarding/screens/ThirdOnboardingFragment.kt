@@ -6,7 +6,9 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import com.groupg.foodrecipe.MainActivity
+import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.data.local.SharedPrefManager
 import com.groupg.foodrecipe.databinding.FragmentThirdOnboardingBinding
 
@@ -30,8 +32,7 @@ class ThirdOnboardingFragment : Fragment() {
 
     private fun buttonControl() {
         binding.thirdOnboardingButton.setOnClickListener {
-            val intent = Intent(context, MainActivity::class.java)
-            startActivity(intent)
+            findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
             SharedPrefManager(requireContext()).setOnboardingShown()
             requireActivity().finish()
         }

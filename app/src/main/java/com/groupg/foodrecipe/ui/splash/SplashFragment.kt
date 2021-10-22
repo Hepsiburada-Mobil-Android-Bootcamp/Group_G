@@ -39,8 +39,7 @@ class SplashFragment : Fragment() {
                 if (!isOnboardingShown()) {
                     findNavController().navigate(R.id.action_splashFragment_to_onboardingFragment)
                 } else {
-                    val intent = Intent(context, MainActivity::class.java)
-                    startActivity(intent)
+                    findNavController().navigate(R.id.action_splashFragment_to_signInFragment)
                 }
             }
 
