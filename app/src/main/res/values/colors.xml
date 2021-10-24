@@ -7,6 +7,19 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="splash_onboarding_background">#FF4B3A</color>
+    <color name="onboarding_text_secondary">#60FFFFFF</color>
+    <color name="onboarding_button_text">#FF460A</color>
+    <color name="indicator_active">#FFDFD4</color>
+    <color name="indicator_inactive">#FF855D</color>
+    <color name="auth_background">#F2F2F2</color>
+    <color name="auth_button_text">#F6F6F9</color>
+    <color name="addToCardButtonBackground">#FA4A0C</color>
+    <color name="foodReturnPolicyTextColor">#000000</color>
+    <color name="deliveryInfoTextColor">#000000</color>
+    <color name="subSubTitleTextColor">#FA4A0C</color>
+    <color name="foodNameTextColor">#000000</color>
+    <color name="foodDetailBackground">#4D909090</color>
 
     <color name="main_orange">#FA4A0C</color>
 </resources>
