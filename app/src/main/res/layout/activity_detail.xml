@@ -7,15 +7,23 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:id="@+id/backToPreviousScreenIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
         android:id="@+id/favouriteIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:src="@drawable/ic_favorite"
+        android:src="@drawable/ic_favorite_empty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.smarteist.autoimageslider.SliderView
-        android:id="@+id/foodImage"
+        android:id="@+id/foodImageSlider"
         android:layout_width="200dp"
         android:layout_height="200dp"
         app:sliderAnimationDuration="600"
@@ -35,7 +43,7 @@
         android:src="@drawable/ic_launcher_background"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/favouriteIcon" />
 
     <TextView
         android:id="@+id/foodName"
@@ -44,9 +52,9 @@
         android:text="@string/foodName"
         android:textSize="@dimen/text_size_medium"
         android:textColor="@color/foodNameTextColor"
-        app:layout_constraintTop_toBottomOf="@id/foodImage"
-        app:layout_constraintStart_toStartOf="@id/foodImage"
-        app:layout_constraintEnd_toEndOf="@id/foodImage"
+        app:layout_constraintTop_toBottomOf="@id/foodImageSlider"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
         android:layout_marginTop="@dimen/activity_vertical_margin" />
 
     <TextView
@@ -57,8 +65,8 @@
         android:textColor="@color/subSubTitleTextColor"
         android:textSize="@dimen/text_size_small"
         app:layout_constraintTop_toBottomOf="@id/foodName"
-        app:layout_constraintStart_toStartOf="@id/foodImage"
-        app:layout_constraintEnd_toEndOf="@id/foodImage"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
         android:layout_marginTop="@dimen/activity_vertical_margin_small" />
 
     <TextView
@@ -105,13 +113,16 @@
 
     <Button
         android:id="@+id/btnAddToCard"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="@color/addToCardButtonBackground"
+        android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/activity_vertical_margin_huge"
+        android:layout_marginEnd="@dimen/activity_vertical_margin_huge"
+        android:layout_height="50dp"
+        android:textColor="@color/white"
+        android:background="@drawable/bg_add_to_cart"
         android:textAllCaps="false"
         app:layout_constraintTop_toBottomOf="@id/returnPolicyDetail"
-        app:layout_constraintStart_toStartOf="@id/foodImage"
-        app:layout_constraintEnd_toEndOf="@id/foodImage"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
         app:layout_constraintBottom_toBottomOf="parent"
         android:text="@string/addToCard" />
 

@@ -18,7 +18,7 @@ import java.util.List;
 public class FoodSliderAdapter extends
         SliderViewAdapter<FoodSliderAdapter.SliderAdapterVH> {
 
-    private Context context;
+    private final Context context;
     private List<SliderItem> mSliderItems = new ArrayList<>();
 
     public FoodSliderAdapter(Context context) {
@@ -51,9 +51,9 @@ public class FoodSliderAdapter extends
 
         SliderItem sliderItem = mSliderItems.get(position);
 
-        viewHolder.textViewDescription.setText(sliderItem.getDescription());
-        viewHolder.textViewDescription.setTextSize(16);
-        viewHolder.textViewDescription.setTextColor(Color.WHITE);
+        //viewHolder.textViewDescription.setText(sliderItem.getDescription());
+        //viewHolder.textViewDescription.setTextSize(16);
+        //viewHolder.textViewDescription.setTextColor(Color.WHITE);
         Glide.with(viewHolder.itemView)
                 .load(sliderItem.getImageUrl())
                 .fitCenter()
@@ -73,7 +73,7 @@ public class FoodSliderAdapter extends
         return mSliderItems.size();
     }
 
-    class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
+    static class SliderAdapterVH extends SliderViewAdapter.ViewHolder {
 
         View itemView;
         ImageView imageViewBackground;
@@ -83,8 +83,8 @@ public class FoodSliderAdapter extends
         public SliderAdapterVH(View itemView) {
             super(itemView);
             imageViewBackground = itemView.findViewById(R.id.iv_auto_image_slider);
-            imageGifContainer = itemView.findViewById(R.id.iv_gif_container);
-            textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
+            //imageGifContainer = itemView.findViewById(R.id.iv_gif_container);
+            //textViewDescription = itemView.findViewById(R.id.tv_auto_image_slider);
             this.itemView = itemView;
         }
     }
