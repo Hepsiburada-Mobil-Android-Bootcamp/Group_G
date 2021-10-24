@@ -41,7 +41,7 @@ class SecondOnboardingFragment : Fragment() {
         binding.secondSkipButton.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
             SharedPrefManager(requireContext()).setOnboardingShown()
-            requireActivity().finish()
+
         }
     }
 }

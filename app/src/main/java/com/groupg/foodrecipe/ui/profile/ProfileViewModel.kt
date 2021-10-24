@@ -5,16 +5,19 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.groupg.foodrecipe.R
+import com.google.firebase.auth.FirebaseAuth
 
 class ProfileViewModel() : ViewModel(){
 
+    private val firebaseAuth: FirebaseAuth by lazy { FirebaseAuth.getInstance()}
+
     private val _username = MutableLiveData<String>().apply {
-        value = "Atacan Uğurlu"
+        value = firebaseAuth.currentUser?.displayName
     }
     val username: LiveData<String> = _username
 
     private val _email = MutableLiveData<String>().apply {
-        value = "atacanugurlu@gmail.com"
+        value = firebaseAuth.currentUser?.email
     }
     val email: LiveData<String> = _email
 

@@ -53,7 +53,6 @@ class SignInFragment : Fragment() {
                         Toast.makeText(context, getString(R.string.login_success), Toast.LENGTH_LONG).show()
                         val intent = Intent(context, MainActivity::class.java)
                         startActivity(intent)
-                        requireActivity().finish()
                     }
                 }
                 .addOnFailureListener { exception ->

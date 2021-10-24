@@ -39,7 +39,7 @@ class FirstOnboardingFragment : Fragment() {
         binding.firstSkipButton.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
             SharedPrefManager(requireContext()).setOnboardingShown()
-            requireActivity().finish()
+
         }
     }
 
