@@ -50,12 +50,12 @@ class HomeFragment : Fragment() {
 
         bindingAlert= FoodAddDialogBinding.inflate(inflater,container,false)
 
-        bindingAlert.textViewUploadImage.setOnClickListener {
+        /*bindingAlert.textViewUploadImage.setOnClickListener {
 
 
             selectImage()
 
-        }
+        }*/
 
         bindingAlert.imageButtonDialogExit.setOnClickListener {
 

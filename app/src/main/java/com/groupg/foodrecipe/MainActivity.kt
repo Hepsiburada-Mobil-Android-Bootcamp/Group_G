@@ -1,7 +1,6 @@
 package com.groupg.foodrecipe
 
 import android.os.Bundle
-import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -9,6 +8,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.groupg.foodrecipe.databinding.ActivityMainBinding
+import com.ismaeldivita.chipnavigation.ChipNavigationBar
 
 class MainActivity : AppCompatActivity() {
 
@@ -16,28 +16,21 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        supportActionBar?.hide()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navView: BottomNavigationView = binding.navView
+        val navView: ChipNavigationBar = binding.navView
 
-        val navController = findNavController(R.id.nav_host_fragment_activity_main)
+        // val navController = findNavController(R.id.nav_host_fragment_activity_main)
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(
+        /*val appBarConfiguration = AppBarConfiguration(
             setOf(
                 R.id.navigation_home
             )
         )
-        /*binding.navView.setOnItemSelectedListener {
-            when(it.itemId) {
-                binding.profilePageNavigationIcon.id ->
-                binding.favouritePageNavigationIcon.id ->
-                else ->
-            }
-
-        }*/
-        navView.setupWithNavController(navController)
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)*/
     }
 }
