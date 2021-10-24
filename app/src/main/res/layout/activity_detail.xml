@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/foodDetailBackground"
+    android:padding="@dimen/activity_horizontal_margin_huge">
+
+    <ImageView
+        android:id="@+id/backToPreviousScreenIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:onClick="backToPreviousPage"
+        android:src="@drawable/ic_arrow_back"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/favourite"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:onClick="addFavourite"
+        android:src="@drawable/ic_favorite_empty"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.smarteist.autoimageslider.SliderView
+        android:id="@+id/foodImageSlider"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:src="@drawable/ic_launcher_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/favourite"
+        app:sliderAnimationDuration="600"
+        app:sliderAutoCycleDirection="back_and_forth"
+        app:sliderAutoCycleEnabled="true"
+        app:sliderIndicatorAnimationDuration="600"
+        app:sliderIndicatorGravity="center_horizontal|bottom"
+        app:sliderIndicatorMargin="15dp"
+        app:sliderIndicatorOrientation="horizontal"
+        app:sliderIndicatorPadding="3dp"
+        app:sliderIndicatorRadius="2dp"
+        app:sliderIndicatorSelectedColor="#5A5A5A"
+        app:sliderIndicatorUnselectedColor="#FFF"
+        app:sliderScrollTimeInSec="1"
+        app:sliderStartAutoCycle="true" />
+
+    <TextView
+        android:id="@+id/foodName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/foodName"
+        android:textColor="@color/foodNameTextColor"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintTop_toBottomOf="@id/foodImageSlider" />
+
+    <TextView
+        android:id="@+id/foodSubTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin_small"
+        android:text="@string/foodSubTitle"
+        android:textColor="@color/subSubTitleTextColor"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintTop_toBottomOf="@id/foodName" />
+
+    <TextView
+        android:id="@+id/deliveryInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:text="@string/deliveryInfo"
+        android:textColor="@color/deliveryInfoTextColor"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/foodSubTitle" />
+
+    <TextView
+        android:id="@+id/deliveryDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin_small"
+        android:text="@string/deliveryDetail"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deliveryInfo" />
+
+    <TextView
+        android:id="@+id/returnPolicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin_huge"
+        android:text="@string/returnPolicy"
+        android:textColor="@color/foodReturnPolicyTextColor"
+        android:textSize="@dimen/text_size_medium"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/deliveryDetail" />
+
+    <TextView
+        android:id="@+id/returnPolicyDetail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_vertical_margin_small"
+        android:text="@string/returnPolicyDetail"
+        android:textSize="@dimen/text_size_small"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/returnPolicy" />
+
+    <Button
+        android:id="@+id/addToCard"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginStart="@dimen/activity_vertical_margin_huge"
+        android:layout_marginEnd="@dimen/activity_vertical_margin_huge"
+        android:background="@drawable/bg_add_to_cart"
+        android:onClick="addToCartClicked"
+        android:text="@string/addToCard"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/foodImageSlider"
+        app:layout_constraintStart_toStartOf="@id/foodImageSlider"
+        app:layout_constraintTop_toBottomOf="@id/returnPolicyDetail" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
