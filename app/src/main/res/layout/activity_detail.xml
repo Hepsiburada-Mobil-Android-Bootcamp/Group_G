@@ -10,7 +10,7 @@
         android:id="@+id/backToPreviousScreenIcon"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:onClick="backToPreviousPage"
+        android:onClick="backToPreviousPageClicked"
         android:src="@drawable/ic_arrow_back"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -19,7 +19,7 @@
         android:id="@+id/favourite"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:onClick="addFavourite"
+        android:onClick="addFavouriteClicked"
         android:src="@drawable/ic_favorite_empty"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

@@ -47,7 +47,6 @@ class FoodDetailActivity : AppCompatActivity() {
         adapter = FoodSliderAdapter(this)
         setAdapterToFoodSliderView(adapter)
         initFoodSliderView()
-
         populateFoodSliderAdapter()
     }
 
@@ -97,26 +96,27 @@ class FoodDetailActivity : AppCompatActivity() {
     }
 
     fun addToCartClicked(view: View) {
+        val intent = Intent(this@FoodDetailActivity, MainActivity::class.java)
+        intent.putExtra("food", food)
+        startActivity(intent)
     }
 
-    fun addFavourite(view: View) {
+    fun addFavouriteClicked(view: View) {
         if (ivAddToFavourites.tag as Int == R.drawable.ic_favorite_filled) {
-            Log.e("filled", "filled")
+            changeFavouriteComponentResource(true)
         } else {
-            Log.e("empty", "empty")
+            changeFavouriteComponentResource(false)
         }
 
-        /*
         val foodDatabaseDao =  FoodDatabase.getInstance(this@FoodDetailActivity).foodDatabaseDao
         GlobalScope.launch {
             val food: Food = foodDatabaseDao.getFood(food!!.foodId)
             food.isFavourite = true
             foodDatabaseDao.updateFood(food)
         }
-        */
     }
 
-    fun backToPreviousPage(view: View) {
+    fun backToPreviousPageClicked(view: View) {
         startActivity(Intent(this@FoodDetailActivity, MainActivity::class.java))
     }
 }
