@@ -34,7 +34,7 @@ class ThirdOnboardingFragment : Fragment() {
         binding.thirdOnboardingButton.setOnClickListener {
             findNavController().navigate(R.id.action_onboardingFragment_to_signInFragment)
             SharedPrefManager(requireContext()).setOnboardingShown()
-            requireActivity().finish()
+
         }
     }
 }
