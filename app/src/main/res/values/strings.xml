@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">FoodRecipe</string>
     <string name="title_home">Home</string>
+    <string name="update">Update</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile">Profile</string>
+    <string name="favourite">Favourite</string>
+    <string name="new_recipe">New Recipe</string>
     <string name="foodName">Tomato Veggie</string>
     <string name="foodSubTitle">GHS 8.00</string>
     <string name="deliveryInfo">Delivery Info</string>
@@ -8,4 +13,37 @@
     <string name="returnPolicy">Return Policy</string>
     <string name="returnPolicyDetail">All our foods are double checked before leaving our stores so by any case you found a broken food please contact our hotline immediately.</string>
     <string name="addToCard">Add to cart</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="skip"><![CDATA[Skip >>]]></string>
+    <string name="first_onboarding_description">Don\'t bother thinking what to cook</string>
+    <string name="first_onboarding_image">First Onboarding Image</string>
+    <string name="next"><![CDATA[Next >]]></string>
+    <string name="app_logo">App Logo</string>
+    <string name="second_onboarding_description">Search among a variety of recipes</string>
+    <string name="second_onboarding_image">Second Onboarding Image</string>
+    <string name="third_onboarding_description">Save your favorite recipes to cook</string>
+    <string name="third_onboarding_image">Third Onboarding Image</string>
+    <string name="get_started">Get started!</string>
+    <string name="third_app_logo">Third App Logo</string>
+    <string name="login">Login</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="email_address">Email address</string>
+    <string name="password">Password</string>
+    <string name="forgot_password">Forgot password?</string>
+    <string name="username">Username</string>
+    <string name="email_is_required">Email is required.</string>
+    <string name="email_invalid">Email is invalid.</string>
+    <string name="password_is_required">Password is required.</string>
+    <string name="short_password">Password is too short.</string>
+    <string name="long_password">Password is too long.</string>
+    <string name="password_restrictions">Password must contain one digit, one uppercase letter, one lowercase letter and one special character.</string>
+    <string name="username_is_required">Username is required.</string>
+    <string name="short_username">Username is too short.</string>
+    <string name="long_username">Username is too long.</string>
+    <string name="username_restrictions">Username can only include a-z, 0-9 and _ characters</string>
+    <string name="register_success">Account created successfully!</string>
+    <string name="register_fail">Failed to create account!</string>
+    <string name="firebase_error">Firebase Error: %1$s</string>
+    <string name="login_success">Login successful!</string>
 </resources>

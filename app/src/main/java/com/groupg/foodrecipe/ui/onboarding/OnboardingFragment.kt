@@ -5,56 +5,86 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
+import android.widget.ImageView
+import android.widget.LinearLayout
+import androidx.core.content.ContextCompat
+import androidx.viewpager2.widget.ViewPager2
 import com.groupg.foodrecipe.R
+import com.groupg.foodrecipe.adapter.OnboardingAdapter
+import com.groupg.foodrecipe.databinding.FragmentOnboardingBinding
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [OnboardingFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class OnboardingFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    private var _binding: FragmentOnboardingBinding? = null
+    private val binding get() = _binding!!
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+    private lateinit var adapter: OnboardingAdapter
+    private lateinit var indicatorsContainer: LinearLayout
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
+        _binding = FragmentOnboardingBinding.inflate(inflater, container, false)
+
+        initViewPager()
+        placeIndicators()
+        setCurrentIndicator(0)
+        return binding.root
+    }
+
+    private fun initViewPager() {
+        adapter = OnboardingAdapter(requireActivity())
+        binding.onboardingViewPager.adapter = adapter
+
+        binding.onboardingViewPager.registerOnPageChangeCallback(object :
+            ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    super.onPageSelected(position)
+                    setCurrentIndicator(position)
+                }
+            }
+        )
+    }
+
+    private fun placeIndicators() {
+        adapter = OnboardingAdapter(requireActivity())
+        indicatorsContainer = binding.indicatorsContainer
+        val indicators = arrayOfNulls<ImageView>(adapter.itemCount)
+        val layoutParams: LinearLayout.LayoutParams = LinearLayout.LayoutParams(WRAP_CONTENT, WRAP_CONTENT)
+        val applicationContext = activity?.applicationContext!!
+        layoutParams.setMargins(16, 0, 16, 0)
+        for (i in indicators.indices) {
+            indicators[i] = ImageView(applicationContext)
+            indicators[i]?.let {
+                it.setImageDrawable(
+                    ContextCompat.getDrawable(applicationContext, R.drawable.indicator_inactive)
+                )
+                it.layoutParams = layoutParams
+                indicatorsContainer.addView(it)
+            }
         }
     }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_onboarding, container, false)
+    private fun setCurrentIndicator(position: Int) {
+        val childCount = indicatorsContainer.childCount
+        for (i in 0 until childCount) {
+            val imageView = indicatorsContainer.getChildAt(i) as ImageView
+            if (i == position) {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.indicator_active)
+                )
+            } else {
+                imageView.setImageDrawable(
+                    ContextCompat.getDrawable(activity?.applicationContext!!, R.drawable.indicator_inactive)
+                )
+            }
+        }
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment OnboardingFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            OnboardingFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 }
