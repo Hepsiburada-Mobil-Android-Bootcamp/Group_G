@@ -40,6 +40,6 @@ class FoodDatabaseTest {
         val food = Food()
         foodDao.insertFood(food)
         val testFood = foodDao.getFood(food.foodId)
-        assertEquals(testFood.favourite, false)
+        assertEquals(testFood.isFavourite, false)
     }
 }
