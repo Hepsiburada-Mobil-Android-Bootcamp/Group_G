@@ -34,7 +34,7 @@
                 android:maxLines="23"
                 android:lines="8"
                 android:textSize="14sp"
-                app:layout_constraintBottom_toTopOf="@+id/button"
+                app:layout_constraintBottom_toTopOf="@+id/buttonAddFood"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/editTextFoodInfo" />
