@@ -12,4 +12,5 @@
     <color name="deliveryInfoTextColor">#000000</color>
     <color name="subSubTitleTextColor">#FA4A0C</color>
     <color name="foodNameTextColor">#000000</color>
+    <color name="foodDetailBackground">#4D909090</color>
 </resources>
