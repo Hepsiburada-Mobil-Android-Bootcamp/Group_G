@@ -1,6 +1,7 @@
 package com.groupg.foodrecipe
 
 import android.os.Bundle
+import android.view.View
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -15,7 +16,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
+        supportActionBar?.hide()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,7 +30,14 @@ class MainActivity : AppCompatActivity() {
                 R.id.navigation_home
             )
         )
-        setupActionBarWithNavController(navController, appBarConfiguration)
+        /*binding.navView.setOnItemSelectedListener {
+            when(it.itemId) {
+                binding.profilePageNavigationIcon.id ->
+                binding.favouritePageNavigationIcon.id ->
+                else ->
+            }
+
+        }*/
         navView.setupWithNavController(navController)
     }
 }

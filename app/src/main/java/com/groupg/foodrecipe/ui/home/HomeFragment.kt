@@ -8,6 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.groupg.foodrecipe.R
 import com.groupg.foodrecipe.databinding.FragmentHomeBinding
 
@@ -35,6 +37,10 @@ class HomeFragment : Fragment() {
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        textView.setOnClickListener {view: View ->
+            view.findNavController().navigate(R.id.action_navigation_home_to_navigation_profile)
+        }
+
         return root
     }
 

@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">FoodRecipe</string>
     <string name="title_home">Home</string>
+    <string name="update">Update</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="profile">Profile</string>
+    <string name="favourite">Favourite</string>
+    <string name="new_recipe">New Recipe</string>
 </resources>
