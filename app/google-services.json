@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "880965451388",
+    "project_id": "groupg-foodrecipe",
+    "storage_bucket": "groupg-foodrecipe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880965451388:android:0f108b36e31b58b2cc13f9",
+        "android_client_info": {
+          "package_name": "com.groupg.foodrecipe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880965451388-cocprdrg8jshhbhsn0b8ek4k3svh49t0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCoiT9nu92nU2QbiqG1oSNVGAy-4NJpqPE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "880965451388-cocprdrg8jshhbhsn0b8ek4k3svh49t0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
